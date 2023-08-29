@@ -1,0 +1,51 @@
+.form {
+    max-width: 626px;
+    width: 100%;
+    min-height: 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.fieldset {
+    margin: 0;
+    padding: 0;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 19px;
+    height: 100%;
+}
+
+.input {
+    filter: drop-shadow(0px 7px 12px rgba(100, 100, 111, 0.20));
+    padding: 19px 30px;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-family: 'Fira Sans';
+    font-weight: 700;
+    font-size: 22px;
+    color: #656EC2;
+}
+
+.input::placeholder {
+    color: #656EC2;
+}
+
+.iconContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(100, 100, 111, 0.1);
+    border-radius: 50%;
+    padding: 10px;
+    transition: all 0.3s;
+  
+}
+
+.iconContainer:hover {
+    cursor: pointer;
+    background-color: rgba(100, 100, 111, 0.2);
+}

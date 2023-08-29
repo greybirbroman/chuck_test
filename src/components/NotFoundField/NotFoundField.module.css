@@ -1,0 +1,19 @@
+.container {
+  font-family: 'Fira Sans';
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+}
+
+.text {
+  text-align: center;
+  font-size: 22px;
+  color: #282626;
+}
+
+.span {
+  color: #656ec2;
+  font-weight: 700;
+}

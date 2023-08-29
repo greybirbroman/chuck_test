@@ -1,0 +1,21 @@
+.page {
+  font-family: 'Fira Sans';
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.title {
+  text-align: center;
+  color: #656ec2;
+  font-weight: 700;
+}
+
+@media (max-width: 992px) {
+  .page {
+    gap: 20px;
+  }
+}

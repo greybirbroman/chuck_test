@@ -1,0 +1,42 @@
+.button {
+  font-family: 'Fira Sans';
+  border: none;
+  padding: 20px;
+  box-shadow: 0px 7px 25px 0px rgba(100, 100, 111, 0.2);
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+
+.default {
+  background-color: white;
+  color: #656ec2;
+}
+.default:hover {
+  background-color: #656ec2;
+  color: white;
+}
+
+.default:disabled {
+  background-color: rgba(100, 100, 111, 0.1);
+  color: rgba(100, 100, 111, 0.2);
+  cursor: default;
+}
+
+.invert {
+  background-color: #656ec2;
+  color: white;
+}
+
+.invert:hover {
+  background-color: white;
+  color: #656ec2;
+}
+
+.invert:disabled {
+  background-color: rgba(100, 100, 111, 0.1);
+  color: rgba(100, 100, 111, 0.2);
+  cursor: default;
+}
