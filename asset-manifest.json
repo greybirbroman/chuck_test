@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/chuck_test/static/css/main.1f3503ee.css",
+    "main.js": "/chuck_test/static/js/main.1e11360f.js",
+    "static/media/404.svg": "/chuck_test/static/media/404.10c3bba88182de9fddb1ad783a03d5dc.svg",
+    "static/media/chuck_logo.png": "/chuck_test/static/media/chuck_logo.8cef148e44782b060a5c.png",
+    "index.html": "/chuck_test/index.html",
+    "static/media/close_icon.svg": "/chuck_test/static/media/close_icon.2ab6f554e8f9c5a26a75b32bdac56685.svg",
+    "main.1f3503ee.css.map": "/chuck_test/static/css/main.1f3503ee.css.map",
+    "main.1e11360f.js.map": "/chuck_test/static/js/main.1e11360f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1f3503ee.css",
+    "static/js/main.1e11360f.js"
+  ]
+}
