@@ -3,8 +3,8 @@
 ![react](https://img.shields.io/badge/React-black?style=for-the-badge&logo=React&logoColor=#61DAFB)
 ![redux](https://img.shields.io/badge/redux-black?style=for-the-badge&logo=redux&logoColor=#06b6d4)
 
-Deploy [gh-pages](https://greybirbroman.github.io/)
-Deploy [Vercel](https://greybirbroman-github-nejv2otvu-greybirbroman.vercel.app/)
+Deploy [gh-pages](https://greybirbroman.github.io/gh-test/)
+Deploy [Vercel](https://chuck-test.vercel.app/)
 
 <img src='./src/images/chuck_readme.jpg' width='700px'/>
 
