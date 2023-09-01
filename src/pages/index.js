@@ -1,11 +1,13 @@
 import Layout from "./Layout/Layout";
 import MainPage from "./MainPage/MainPage";
 import SingleJokePage from "./SingleJokePage/SingleJokePage";
-import NotFoundPage from "./NotFoundPage/NotFoundPage";
+import NotFoundPage from "./ErrorPages/NotFoundPage";
+import SingleJokeErrorPage from "./ErrorPages/SingleJokeErrorPage";
 
 export {
     Layout,
     MainPage,
     SingleJokePage,
-    NotFoundPage
+    NotFoundPage,
+    SingleJokeErrorPage
 }

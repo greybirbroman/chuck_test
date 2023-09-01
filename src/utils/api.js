@@ -2,11 +2,14 @@ const BASE_URL = process.env.REACT_APP_BASE_URL;
 //console.log(BASE_URL)
 
 const handleResponse = async (res) => {
-  if (res.ok) {
-    return await res.json();
-  } else {
-    throw new Error(`Request failed with status ${res.status}`);
+  if (!res.ok) {
+    throw new Response('', {
+      status: res.status,
+      statusText: res.statusText,
+    });
+    //throw new Error(`Request failed with status ${res.status}`);
   }
+  return await res.json();
 };
 
 export const getJokesByQuery = async (query) => {

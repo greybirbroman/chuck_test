@@ -6,8 +6,7 @@ import {
   SET_SEARCH_ERROR,
 } from '../types';
 
-const SEARCH_RESULT = 'searchResult';
-const SEARCH_QUERY = 'searchQuery'
+import { SEARCH_QUERY, SEARCH_RESULT } from '../constants';
 
 const initialState = {
   query: sessionStorage.getItem(SEARCH_QUERY) || '',
@@ -17,6 +16,7 @@ const initialState = {
 };
 
 const searchReducer = (state = initialState, action) => {
+  console.log(action)
   switch (action.type) {
     case SET_SEARCH_QUERY:
       return { ...state, query: action.payload, isSearchCompleted: false };

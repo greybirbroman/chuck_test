@@ -26,6 +26,7 @@ const JokesList = () => {
   }
 
   return (
+    searchResult &&
     <ul className={styles.list}>
       {searchResult.length &&
         searchResult

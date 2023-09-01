@@ -27,7 +27,7 @@ const PaginationBar = () => {
   };
 
   return (
-    list.length !== 0 && totalPages > 1 &&
+    list && list.length !== 0 && totalPages > 1 &&
       <div className={styles.container}>
         <CustomButton title='less' onClick={handleShowLess} disabled={currentPage === 1} />
         <span className={styles.pages}>

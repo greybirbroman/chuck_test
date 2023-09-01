@@ -6,11 +6,13 @@ import { getIsLoading } from '../../services/selectors/loadingSelectors';
 import { getRandomJoke } from '../../services/selectors/randomJokeSelectors';
 import useRandomJoke from '../../utils/hooks/useRandomJoke';
 
+
 const SingleJokePage = () => {
   const joke = useSelector(getRandomJoke);
   const isLoading = useSelector(getIsLoading);
   const { handleSurprise } = useRandomJoke();
   const pageTitle = "Hi! It's a random joke from Chuck"
+
 
   // if (isLoading) return <Loader />;
 

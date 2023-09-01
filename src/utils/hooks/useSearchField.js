@@ -3,13 +3,8 @@ import { useDispatch } from 'react-redux';
 import {
   setSearchQuery,
   resetSearchQuery,
-  setSearchResult,
-  setSearchError,
+  fetchSearchResult,
 } from '../../services/actions/searchActions';
-import { setLoading } from '../../services/actions/loadingActions';
-import { resetPaginationSettings } from '../../services/actions/paginationActions';
-import { setSearchCompleted } from '../../services/actions/searchActions';
-import { getJokesByQuery } from '../../utils/api';
 
 const useSearchField = () => {
   const [timeoutId, setTimeoutId] = useState(null);
@@ -41,19 +36,8 @@ const useSearchField = () => {
     }
   };
 
-  const handleSubmit = async (query) => {
-    try {
-      dispatch(setLoading(true));
-      const response = await getJokesByQuery(query);
-      const jokes = response.result;
-      dispatch(setSearchResult(jokes));
-      dispatch(resetPaginationSettings());
-    } catch (error) {
-      dispatch(setSearchError(error));
-    } finally {
-      dispatch(setLoading(false));
-      setSearchCompleted(true)
-    }
+  const handleSubmit = (query) => {
+      dispatch(fetchSearchResult(query))  
   };
 
   useEffect(() => {
