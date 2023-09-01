@@ -3,13 +3,12 @@ import {
   RESET_SEARCH_QUERY,
   SET_SEARCH_RESULT,
   SET_SEARCH_COMPLETED,
-  SET_SEARCH_ERROR,
 } from '../types';
 
-import { getJokesByQuery } from '../../utils/api';
-
 import { SEARCH_QUERY, SEARCH_RESULT } from '../constants';
+import { getJokesByQuery } from '../../utils/api';
 import { setLoading } from '../actions/loadingActions';
+import { setError } from './apiErrorsActions';
 import { resetPaginationSettings } from './paginationActions';
 
 export const setSearchQuery = (query) => {
@@ -38,19 +37,14 @@ export const fetchSearchResult = (query) => async (dispatch) => {
       payload: result,
     });
     sessionStorage.setItem(SEARCH_RESULT, JSON.stringify(result));
-    dispatch(setSearchCompleted(true));
     dispatch(resetPaginationSettings())
   } catch (error) {
-    dispatch(setSearchError(error));
+    dispatch(setError(error));
   } finally {
+    dispatch(setSearchCompleted(true));
     dispatch(setLoading(false))
   }
 };
-
-export const setSearchError = (error) => ({
-  type: SET_SEARCH_ERROR,
-  payload: error,
-});
 
 export const setSearchCompleted = (completed) => ({
   type: SET_SEARCH_COMPLETED,

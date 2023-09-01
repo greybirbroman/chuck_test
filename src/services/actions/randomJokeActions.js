@@ -3,6 +3,7 @@ import { SET_RANDOM_JOKE } from '../types';
 import { RANDOM_JOKE } from '../constants';
 import { getRandomJoke } from '../../utils/api';
 import { setLoading } from './loadingActions';
+import { setError } from './apiErrorsActions';
 
 export const setRandomJoke = () =>  async (dispatch) => {
   try {
@@ -14,7 +15,7 @@ export const setRandomJoke = () =>  async (dispatch) => {
     })
     sessionStorage.setItem(RANDOM_JOKE, JSON.stringify(response))
   } catch (error) {
-    console.error(error)
+    dispatch(setError(error))
   } finally {
     dispatch(setLoading(false))
   }

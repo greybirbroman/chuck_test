@@ -5,7 +5,6 @@ import { motion as m } from 'framer-motion';
 
 const Card = ({ joke, index }) => {
   const { id, value, created_at, url } = joke;
-  console.log(joke)
 
   return (
     <m.li
