@@ -3,7 +3,7 @@ import {
   RESET_SEARCH_QUERY,
   SET_SEARCH_RESULT,
   SET_SEARCH_COMPLETED,
-  SET_SEARCH_ERROR,
+  //SET_SEARCH_ERROR,
 } from '../types';
 
 import { SEARCH_QUERY, SEARCH_RESULT } from '../constants';
@@ -12,7 +12,7 @@ const initialState = {
   query: sessionStorage.getItem(SEARCH_QUERY) || '',
   searchResult: JSON.parse(sessionStorage.getItem(SEARCH_RESULT)) || [],
   isSearchCompleted: false,
-  error: null,
+  //error: null,
 };
 
 const searchReducer = (state = initialState, action) => {
@@ -22,9 +22,7 @@ const searchReducer = (state = initialState, action) => {
     case RESET_SEARCH_QUERY:
       return { ...state, searchResult: [], query: '', isSearchCompleted: false };
     case SET_SEARCH_RESULT:
-      return { ...state, searchResult: action.payload, error: null, isSearchCompleted: true };
-    case SET_SEARCH_ERROR:
-      return { ...state, searchResult: [], error: action.payload, isSearchCompleted: true };
+      return { ...state, searchResult: action.payload, isSearchCompleted: true };
     case SET_SEARCH_COMPLETED:
       return { ...state, isSearchCompleted: action.payload };
     default:

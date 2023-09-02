@@ -3,11 +3,8 @@ const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 const handleResponse = async (res) => {
   if (!res.ok) {
-    throw new Response('', {
-      status: res.status,
-      statusText: res.statusText,
-    });
-    //throw new Error(`Request failed with status ${res.status}`);
+    console.log(res)
+    throw new Error(`Request failed with status ${res.status}`);
   }
   return await res.json();
 };
@@ -17,7 +14,8 @@ export const getJokesByQuery = async (query) => {
     const response = await fetch(`${BASE_URL}/search?query=${query}`);
     return await handleResponse(response);
   } catch (error) {
-    console.error(error);
+    console.error(error)
+    throw error
   }
 };
 
@@ -26,6 +24,7 @@ export const getRandomJoke = async () => {
     const response = await fetch(`${BASE_URL}/random`);
     return await handleResponse(response);
   } catch (error) {
-    console.error(error);
+    console.error(error)
+    throw error
   }
 };
