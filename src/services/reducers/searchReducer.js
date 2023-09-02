@@ -16,7 +16,6 @@ const initialState = {
 };
 
 const searchReducer = (state = initialState, action) => {
-  console.log(action)
   switch (action.type) {
     case SET_SEARCH_QUERY:
       return { ...state, query: action.payload, isSearchCompleted: false };

@@ -5,6 +5,7 @@
 
 Deploy [gh-pages](https://greybirbroman.github.io/)
 Deploy [Vercel](https://greybirbroman-github-nejv2otvu-greybirbroman.vercel.app/)
+Refactor at branch [refactor](https://github.com/greybirbroman/chuck_test/tree/refactor)
 
 <img src='./src/images/chuck_readme.jpg' width='700px'/>
 

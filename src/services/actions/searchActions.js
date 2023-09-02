@@ -32,7 +32,6 @@ export const fetchSearchResult = (query) => async (dispatch) => {
     dispatch(setLoading(true))
     const response = await getJokesByQuery(query);
     const result = response.result;
-    console.log(result);
     dispatch({
       type: SET_SEARCH_RESULT,
       payload: result,
