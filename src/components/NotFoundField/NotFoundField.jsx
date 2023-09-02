@@ -15,7 +15,14 @@ const NotFoundField = () => {
   const { handleSurprise } = useRandomJoke();
 
   const errorRenderer = () => {
-    if (!searchResult.length && query.length >= 4 && isSearchCompleted) {
+    if (query && query.length < 4) {
+      return (
+        <p className={styles.text}>
+          Search query cannot be shorter than{' '}
+          <span className={styles.span}>4</span> characters
+        </p>
+      );
+    } else if (!searchResult.length && query.length >= 4 && isSearchCompleted) {
       return (
         <>
           <p className={styles.text}>
@@ -29,19 +36,11 @@ const NotFoundField = () => {
           />
         </>
       );
+    } else {
+      return null;
     }
-    if (query.length < 4 && !isSearchCompleted) {
-      return (
-        <p className={styles.text}>
-          Search query cannot be shorter than{' '}
-          <span className={styles.span}>4</span> characters
-        </p>
-      );
-    }
-    return null;
   };
-
-  return query && <div className={styles.container}>{errorRenderer()}</div>;
+  return <div className={styles.container}>{errorRenderer()}</div>;
 };
 
 export default NotFoundField;

@@ -4,9 +4,10 @@ import apiErrorsReducer from "./apiErrorsReducer";
 import loadingReducer from "./loadingReducer";
 import paginationReducer from "./paginationReduser";
 import randomJokeReducer from "./randomJokeReduser";
+import searchSlice from "./searchSlice";
 
 export const rootReducer = combineReducers({
-    search: searchReducer,
+    search: searchSlice,
     error: apiErrorsReducer,
     loading: loadingReducer,
     pagination: paginationReducer,

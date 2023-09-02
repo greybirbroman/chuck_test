@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import {
-  setSearchQuery,
-  resetSearchQuery,
-  fetchSearchResult,
+ // setSearchQuery,
+  //resetSearchQuery,
+  //fetchSearchResult,
 } from '../../services/actions/searchActions';
+import { setSearchQuery, resetSearchSettings, fetchSearchResult } from '../../services/reducers/searchSlice';
 
 const useSearchField = () => {
   const [timeoutId, setTimeoutId] = useState(null);
@@ -26,7 +27,7 @@ const useSearchField = () => {
   };
 
   const handleResetQuery = () => {
-    dispatch(resetSearchQuery());
+    dispatch(resetSearchSettings());
     inputRef.current.focus();
   };
 
