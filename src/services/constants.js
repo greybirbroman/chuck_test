@@ -1,4 +1,3 @@
-
 const SEARCH_RESULT = 'searchResult';
 const SEARCH_QUERY = 'searchQuery'
 const RANDOM_JOKE = 'randomJoke';

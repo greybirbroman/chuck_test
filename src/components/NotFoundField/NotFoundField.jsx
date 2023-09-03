@@ -6,10 +6,12 @@ import {
   getIsSearchCompleted,
   getSearchQuery,
 } from '../../services/selectors/searchSelectors';
+import { getError } from '../../services/selectors/apiErrorsSelectors';
 import useRandomJoke from '../../utils/hooks/useRandomJoke';
 
 const NotFoundField = () => {
   const query = useSelector(getSearchQuery);
+  const error = useSelector(getError);
   const searchResult = useSelector(getSearchResult);
   const isSearchCompleted = useSelector(getIsSearchCompleted);
   const { handleSurprise } = useRandomJoke();
@@ -22,7 +24,12 @@ const NotFoundField = () => {
           <span className={styles.span}>4</span> characters
         </p>
       );
-    } else if (!searchResult.length && query.length >= 4 && isSearchCompleted) {
+    } else if (
+      !searchResult.length &&
+      query.length >= 4 &&
+      isSearchCompleted &&
+      !error
+    ) {
       return (
         <>
           <p className={styles.text}>
@@ -36,6 +43,9 @@ const NotFoundField = () => {
           />
         </>
       );
+    }
+    if (error !== null && isSearchCompleted) {
+      return <p className={styles.text}>{error}</p>;
     } else {
       return null;
     }

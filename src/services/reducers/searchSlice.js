@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getJokesByQuery } from '../../utils/api';
-import { setLoading } from '../actions/loadingActions';
-import { setError } from '../actions/apiErrorsActions';
-import { resetPaginationSettings } from '../reducers/paginationSlice';
+import { setIsLoading } from './loadingSlice';
+import { setError } from './apiErrorsSlice';
+import { resetPaginationSettings } from './paginationSlice';
 import { SEARCH_QUERY, SEARCH_RESULT } from '../constants';
 
 const initialState = {
@@ -15,7 +15,7 @@ export const fetchSearchResult = createAsyncThunk(
   'search/fetchSearchResult',
   async (query, { rejectWithValue, dispatch }) => {
     try {
-      dispatch(setLoading(true));
+      dispatch(setIsLoading(true));
       const response = await getJokesByQuery(query);
       const result = response.result;
       dispatch(setSearchResult(result));
@@ -24,7 +24,7 @@ export const fetchSearchResult = createAsyncThunk(
     } catch (error) {
       dispatch(setError(error));
     } finally {
-      dispatch(setLoading(false));
+      dispatch(setIsLoading(false));
     }
   }
 );
