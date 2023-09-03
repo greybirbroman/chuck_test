@@ -3,9 +3,9 @@
 ![react](https://img.shields.io/badge/React-black?style=for-the-badge&logo=React&logoColor=#61DAFB)
 ![redux](https://img.shields.io/badge/redux-black?style=for-the-badge&logo=redux&logoColor=#06b6d4)
 
-Deploy [gh-pages](https://greybirbroman.github.io/)
-Deploy [Vercel](https://greybirbroman-github-nejv2otvu-greybirbroman.vercel.app/)
-Refactor at branch [refactor](https://github.com/greybirbroman/chuck_test/tree/refactor)
+- Deploy [gh-pages](https://greybirbroman.github.io/)
+- Deploy [Vercel](https://chuck-test.vercel.app)
+- Refactor at branch [refactor](https://github.com/greybirbroman/chuck_test/tree/refactor)
 
 <img src='./src/images/chuck_readme.jpg' width='700px'/>
 
