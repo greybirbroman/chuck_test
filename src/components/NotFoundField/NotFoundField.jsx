@@ -6,16 +6,30 @@ import {
   getIsSearchCompleted,
   getSearchQuery,
 } from '../../services/selectors/searchSelectors';
+import { getError } from '../../services/selectors/apiErrorsSelectors';
 import useRandomJoke from '../../utils/hooks/useRandomJoke';
 
 const NotFoundField = () => {
   const query = useSelector(getSearchQuery);
+  const error = useSelector(getError);
   const searchResult = useSelector(getSearchResult);
   const isSearchCompleted = useSelector(getIsSearchCompleted);
   const { handleSurprise } = useRandomJoke();
 
   const errorRenderer = () => {
-    if (!searchResult.length && query.length >= 4 && isSearchCompleted) {
+    if (query && query.length < 4) {
+      return (
+        <p className={styles.text}>
+          Search query cannot be shorter than{' '}
+          <span className={styles.span}>4</span> characters
+        </p>
+      );
+    } else if (
+      !searchResult.length &&
+      query.length >= 4 &&
+      isSearchCompleted &&
+      !error
+    ) {
       return (
         <>
           <p className={styles.text}>
@@ -30,18 +44,13 @@ const NotFoundField = () => {
         </>
       );
     }
-    if (query.length < 4 && !isSearchCompleted) {
-      return (
-        <p className={styles.text}>
-          Search query cannot be shorter than{' '}
-          <span className={styles.span}>4</span> characters
-        </p>
-      );
+    if (error !== null && isSearchCompleted) {
+      return <p className={styles.text}>{error}</p>;
+    } else {
+      return null;
     }
-    return null;
   };
-
-  return query && <div className={styles.container}>{errorRenderer()}</div>;
+  return <div className={styles.container}>{errorRenderer()}</div>;
 };
 
 export default NotFoundField;

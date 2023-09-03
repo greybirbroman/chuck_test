@@ -21,19 +21,15 @@ const JokesList = () => {
     return <Loader />;
   }
 
-  if (searchResult.length === 0 && !isLoading) {
+  if (searchResult.length === 0) {
     return <NotFoundField />;
   }
 
   return (
-    searchResult &&
     <ul className={styles.list}>
-      {searchResult.length &&
-        searchResult
-          .slice(startIndex, endIndex)
-          .map((joke, index) => (
-            <Card key={joke.id} joke={joke} index={index} />
-          ))}
+      {searchResult?.slice(startIndex, endIndex).map((joke, index) => (
+        <Card key={joke.id} joke={joke} index={index} />
+      ))}
     </ul>
   );
 };

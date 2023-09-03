@@ -1,7 +1,7 @@
 import styles from './Logo.module.css';
 import { useNavigate } from 'react-router-dom';
 import chuckLogo from '../../images/chuck_logo.png';
-import { resetSearchQuery } from '../../services/actions/searchActions';
+import { resetSearchSettings } from '../../services/reducers/searchSlice';
 import { useDispatch } from 'react-redux';
 
 const Logo = () => {
@@ -9,7 +9,7 @@ const Logo = () => {
   const dispatch = useDispatch();
 
   const handleReturn = () => {
-    dispatch(resetSearchQuery());
+    dispatch(resetSearchSettings());
     navigate('/');
   };
 

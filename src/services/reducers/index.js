@@ -1,14 +1,15 @@
-import { combineReducers } from "redux";
-import searchReducer from "./searchReducer";
-import apiErrorsReducer from "./apiErrorsReducer";
-import loadingReducer from "./loadingReducer";
-import paginationReducer from "./paginationReduser";
-import randomJokeReducer from "./randomJokeReduser";
+import { combineReducers } from 'redux';
+
+import apiErrorsSlice from './apiErrorsSlice';
+import paginationSlice from './paginationSlice';
+import loadingSlice from './loadingSlice';
+import searchSlice from './searchSlice';
+import randomJokeSlice from './randomJokeSlice';
 
 export const rootReducer = combineReducers({
-    search: searchReducer,
-    error: apiErrorsReducer,
-    loading: loadingReducer,
-    pagination: paginationReducer,
-    randomJoke: randomJokeReducer
-})
+  search: searchSlice,
+  error: apiErrorsSlice,
+  loading: loadingSlice,
+  pagination: paginationSlice,
+  randomJoke: randomJokeSlice,
+});

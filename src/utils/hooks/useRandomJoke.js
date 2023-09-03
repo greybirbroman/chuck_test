@@ -1,7 +1,6 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setRandomJoke } from '../../services/actions/randomJokeActions';
-
+import { fetchRandomJoke } from '../../services/reducers/randomJokeSlice';
 
 const useRandomJoke = () => {
   const navigate = useNavigate();
@@ -10,11 +9,11 @@ const useRandomJoke = () => {
   const dispatch = useDispatch();
 
   const handleSurprise = () => {
-    dispatch(setRandomJoke())
-    if(!isSinglePage) {
-      navigate('/random-joke')
+    dispatch(fetchRandomJoke());
+    if (!isSinglePage) {
+      navigate('/random-joke');
     }
-  }
+  };
   return {
     handleSurprise,
   };

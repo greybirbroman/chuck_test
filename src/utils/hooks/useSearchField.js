@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import {
-  setSearchQuery,
-  resetSearchQuery,
+  setSearchSettings,
+  resetSearchSettings,
   fetchSearchResult,
-} from '../../services/actions/searchActions';
+} from '../../services/reducers/searchSlice';
 
 const useSearchField = () => {
   const [timeoutId, setTimeoutId] = useState(null);
@@ -13,7 +13,7 @@ const useSearchField = () => {
 
   const handleChange = (event) => {
     const newQuery = event.target.value;
-      dispatch(setSearchQuery(newQuery));
+    dispatch(setSearchSettings(newQuery));
 
     clearTimeout(timeoutId);
 
@@ -26,7 +26,7 @@ const useSearchField = () => {
   };
 
   const handleResetQuery = () => {
-    dispatch(resetSearchQuery());
+    dispatch(resetSearchSettings());
     inputRef.current.focus();
   };
 
@@ -37,7 +37,7 @@ const useSearchField = () => {
   };
 
   const handleSubmit = (query) => {
-      dispatch(fetchSearchResult(query))  
+    dispatch(fetchSearchResult(query));
   };
 
   useEffect(() => {
@@ -54,7 +54,7 @@ const useSearchField = () => {
     inputRef,
     handleChange,
     handleResetQuery,
-    handleKeyPress
+    handleKeyPress,
   };
 };
 
