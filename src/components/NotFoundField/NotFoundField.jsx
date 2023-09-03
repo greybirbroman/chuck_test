@@ -7,7 +7,7 @@ import {
   getSearchQuery,
 } from '../../services/selectors/searchSelectors';
 import { getError } from '../../services/selectors/apiErrorsSelectors';
-import useRandomJoke from '../../utils/hooks/useRandomJoke';
+import useRandomJoke from '../../utils/hooks/useJokesNav';
 
 const NotFoundField = () => {
   const query = useSelector(getSearchQuery);

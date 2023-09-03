@@ -9,17 +9,22 @@ import {
   SingleJokePage,
   NotFoundPage,
   SingleJokeErrorPage,
+  RandomJokePage,
 } from './pages';
+
+import { jokeLoader } from './pages/SingleJokePage/SingleJokePage';
 
 const router = createHashRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout />}>
       <Route index element={<MainPage />} />
       <Route
-        path='random-joke'
+        path='jokes/:id'
         element={<SingleJokePage />}
+        loader={jokeLoader}
         errorElement={<SingleJokeErrorPage />}
       />
+      <Route path='random-joke' element={<RandomJokePage />} />
       <Route path='*' element={<NotFoundPage />} />
     </Route>
   )

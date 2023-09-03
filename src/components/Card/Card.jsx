@@ -2,9 +2,12 @@ import styles from './Card.module.css';
 import { formatDate } from '../../utils/helpers';
 import { cardVariants } from '../../utils/motion';
 import { motion as m } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Card = ({ joke, index }) => {
-  const { id, value, created_at, url } = joke;
+  const { id, value, created_at } = joke;
+
+  if (!joke) return null;
 
   return (
     <m.li
@@ -16,14 +19,9 @@ const Card = ({ joke, index }) => {
         index > 1 ? styles.card_small : styles.card_regular
       }`}
     >
-      <a
-        href={url}
-        target='_blank'
-        rel='noreferrer'
-        className={styles.cardLink}
-      >
+      <Link to={`/jokes/${id}`} className={styles.cardLink}>
         {''}
-      </a>
+      </Link>
       <p className={styles.cardText}>{value}</p>
       <div className={styles.cardInfo}>
         <span>{id}</span>
