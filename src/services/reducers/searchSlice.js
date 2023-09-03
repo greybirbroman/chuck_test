@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getJokesByQuery } from '../../utils/api';
 import { setLoading } from '../actions/loadingActions';
 import { setError } from '../actions/apiErrorsActions';
-import { resetPaginationSettings } from '../actions/paginationActions';
+import { resetPaginationSettings } from '../reducers/paginationSlice';
 import { SEARCH_QUERY, SEARCH_RESULT } from '../constants';
 
 const initialState = {
@@ -33,12 +33,12 @@ export const searchSlice = createSlice({
   name: 'search',
   initialState,
   reducers: {
-    setSearchQuery: (state, action) => {
+    setSearchSettings: (state, action) => {
       state.query = action.payload;
       state.isSearchCompleted = false;
       if(state.query.length < 4) {
-          sessionStorage.removeItem(SEARCH_RESULT)
           state.searchResult = []
+          sessionStorage.removeItem(SEARCH_RESULT)
       }
       sessionStorage.setItem(SEARCH_QUERY, state.query);
     },
@@ -66,6 +66,6 @@ export const searchSlice = createSlice({
   },
 });
 
-export const { setSearchQuery, setSearchResult, resetSearchSettings } =
+export const { setSearchSettings, setSearchResult, resetSearchSettings } =
   searchSlice.actions;
 export default searchSlice.reducer;

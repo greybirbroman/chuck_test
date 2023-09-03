@@ -1,7 +1,7 @@
 import styles from './PaginationBar.module.css';
 import CustomButton from '../CustomButton/CustomButton';
 import { useDispatch, useSelector } from 'react-redux';
-import { setPaginationSettings } from '../../services/actions/paginationActions';
+import { setCurrentPage } from '../../services/reducers/paginationSlice';
 import {
   getCurrentPage,
   getItemsOnPage,
@@ -19,11 +19,11 @@ const PaginationBar = () => {
   const totalPages = Math.ceil(list.length / itemsOnPage) || 0;
 
   const handleShowMore = () => {
-    dispatch(setPaginationSettings(currentPage + 1, itemsOnPage));
+    dispatch(setCurrentPage(currentPage + 1));
   };
 
   const handleShowLess = () => {
-    dispatch(setPaginationSettings(currentPage - 1, itemsOnPage));
+    dispatch(setCurrentPage(currentPage - 1));
   };
 
   return (
