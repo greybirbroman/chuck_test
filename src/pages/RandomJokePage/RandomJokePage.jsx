@@ -10,7 +10,7 @@ const RandomJokePage = () => {
   const joke = useSelector(getRandomJoke);
   const isLoading = useSelector(getIsLoading);
   const { handleSurprise, handleGoBack } = useJokesNav();
-  const pageTitle = "Hi! It's a page with Random Chuck Joke";
+  const pageTitle = "Hi! It's a page with Random Chuck's Joke";
 
   return (
     <div className={styles.page}>

@@ -1,10 +1,11 @@
 import styles from './SingleJokePage.module.css';
-import { Suspense } from 'react';
-import { useLoaderData, Await, useAsyncValue } from 'react-router-dom';
+import { Suspense, useState } from 'react';
+import { useLoaderData, Await, useAsyncValue, useNavigate } from 'react-router-dom';
 import paddingWrapper from '../HOC/paddingWrapper';
 import { Card, CustomButton, Logo, Loader } from '../../components';
 import { getJokeById } from '../../utils/api';
 import useJokesNav from '../../utils/hooks/useJokesNav';
+import { getRandomJoke } from '../../utils/api';
 
 const JokeFromApi = () => {
   const joke = useAsyncValue();
@@ -13,6 +14,7 @@ const JokeFromApi = () => {
 
 const SingleJokePage = () => {
   const { joke } = useLoaderData();
+  
   const { handleSurprise, handleGoBack } = useJokesNav();
   const pageTitle = "Hi! It's a page with Single Joke";
 
