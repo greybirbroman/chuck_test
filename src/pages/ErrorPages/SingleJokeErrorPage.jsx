@@ -1,12 +1,11 @@
 import ErrorPage from './ErrorPage';
-import { useSelector } from 'react-redux';
-import { getError } from '../../services/selectors/apiErrorsSelectors';
+import { useRouteError } from 'react-router-dom';
 
 const SingleJokeErrorPage = () => {
-  const error = useSelector(getError);
+  const error = useRouteError();
 
   const pageData = {
-    title: `${error}! An error occurred while contacting the server`,
+    title: `${error.status}! An error occurred while contacting the server`,
     subtitle: `Please try again later!`,
   };
 
