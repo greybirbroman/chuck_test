@@ -76,3 +76,9 @@
     line-height: normal;
   }
 }
+
+@media (max-width: 767px) {
+  .card_small, .card_regular {
+    padding: 15px 10px;
+  }
+}
