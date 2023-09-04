@@ -4,7 +4,7 @@ import { useLoaderData, Await, useAsyncValue } from 'react-router-dom';
 import paddingWrapper from '../HOC/paddingWrapper';
 import { Card, CustomButton, Logo, Loader } from '../../components';
 import { getJokeById } from '../../utils/api';
-import useJokesNav from '../../utils/hooks/useJokesNav';
+import useJokesNav from '../../utils/hooks/useHandlers';
 import { useSelector } from 'react-redux';
 import { getIsRandom } from '../../services/selectors/randomJokeSelectors';
 

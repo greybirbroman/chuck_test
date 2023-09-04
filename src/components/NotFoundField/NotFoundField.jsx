@@ -7,14 +7,14 @@ import {
   getSearchQuery,
 } from '../../services/selectors/searchSelectors';
 import { getError } from '../../services/selectors/apiErrorsSelectors';
-import useRandomJoke from '../../utils/hooks/useJokesNav';
+import useHandlers from '../../utils/hooks/useHandlers';
 
 const NotFoundField = () => {
   const query = useSelector(getSearchQuery);
   const error = useSelector(getError);
   const searchResult = useSelector(getSearchResult);
   const isSearchCompleted = useSelector(getIsSearchCompleted);
-  const { handleSurprise } = useRandomJoke();
+  const { handleSurprise } = useHandlers();
 
   const errorRenderer = () => {
     if (query && query.length < 4) {
