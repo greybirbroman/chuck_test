@@ -1,16 +1,19 @@
 import styles from './Card.module.css';
-import {useState} from 'react'
+import { useState } from 'react';
 import { formatDate } from '../../utils/helpers';
 import { cardVariants } from '../../utils/motion';
 import { motion as m } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setIsRandom } from '../../services/reducers/randomJokeSlice';
 
 const Card = ({ joke, index }) => {
   const { id, value, created_at } = joke;
-  const [hasBeenClicked, setHasBeenClicked] = useState(false)
-  const location = useLocation()
+  const dispatch = useDispatch();
+  const location = useLocation();
   if (!joke) return null;
+
 
   return (
     <m.li
@@ -22,8 +25,11 @@ const Card = ({ joke, index }) => {
         index > 1 ? styles.card_small : styles.card_regular
       }`}
     >
-    
-      <Link to={`/jokes/${id}`} className={styles.cardLink}>
+      <Link
+        to={`/jokes/${id}`}
+        className={styles.cardLink}
+        onClick={() => dispatch(setIsRandom(false))}
+      >
         {''}
       </Link>
       <p className={styles.cardText}>{value}</p>

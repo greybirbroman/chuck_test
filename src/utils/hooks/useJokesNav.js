@@ -1,26 +1,24 @@
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { getRandomJoke } from '../api';
 import { useDispatch } from 'react-redux';
-import { fetchRandomJoke } from '../../services/reducers/randomJokeSlice';
+import { setIsRandom } from '../../services/reducers/randomJokeSlice';
 
 const useJokesNav = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const isRandomJoke = location.pathname === '/random-joke';
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
-  const handleSurprise = () => {
-    dispatch(fetchRandomJoke());
-    if (!isRandomJoke) {
-      navigate('/random-joke');
-    }
+  const handleSurprise = async () => {
+    const randomJoke = await getRandomJoke();
+    dispatch(setIsRandom(true))
+    navigate(`/jokes/${randomJoke.id}`);
   };
 
   const handleGoBack = () => {
-    navigate(-1)
-  }
+    navigate(-1);
+  };
   return {
     handleSurprise,
-    handleGoBack
+    handleGoBack,
   };
 };
 
