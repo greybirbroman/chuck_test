@@ -4,7 +4,7 @@ export const cardVariants = {
       x: 0,
       transition: {
         delay: i * 0.2,
-        duration: 1.5,
+        duration: 1,
         type: "spring",
       },
     }),

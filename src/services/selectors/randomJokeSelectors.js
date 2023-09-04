@@ -1,5 +1,5 @@
-const getRandomJoke = ((state) => state.randomJoke.randomJoke)
+const getIsRandom = ((state) => state.randomJoke.isRandom)
 
 export {
-    getRandomJoke
+    getIsRandom
 }

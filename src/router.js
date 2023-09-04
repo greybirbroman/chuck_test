@@ -9,7 +9,6 @@ import {
   SingleJokePage,
   NotFoundPage,
   SingleJokeErrorPage,
-  RandomJokePage,
 } from './pages';
 
 import { jokeLoader } from './pages/SingleJokePage/SingleJokePage';
@@ -24,7 +23,6 @@ const router = createHashRouter(
         loader={jokeLoader}
         errorElement={<SingleJokeErrorPage />}
       />
-      <Route path='random-joke' element={<RandomJokePage />} />
       <Route path='*' element={<NotFoundPage />} />
     </Route>
   )

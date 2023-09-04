@@ -12,12 +12,15 @@
   text-align: center;
   color: #656ec2;
   font-weight: 700;
+  margin: 0;
 }
 
 .buttonsContainer {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
   margin-top: 20px;
 }
 

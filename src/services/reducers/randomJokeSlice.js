@@ -31,8 +31,11 @@ export const randomJokeSlice = createSlice({
     setRandomJoke: (state, action) => {
       state.randomJoke = action.payload;
     },
+    setIsRandom: (state, action) => {
+      state.isRandom = action.payload
+    }
   },
 });
 
-export const { setRandomJoke } = randomJokeSlice.actions
+export const { setRandomJoke, setIsRandom } = randomJokeSlice.actions
 export default randomJokeSlice.reducer

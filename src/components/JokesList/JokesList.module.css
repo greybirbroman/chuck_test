@@ -8,8 +8,6 @@
   position: relative;
 }
 
-
-
 .buttonsContainer {
   width: 100%;
   display: flex;
@@ -24,9 +22,9 @@
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 767px) {
   .list {
     grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 10px;
   }
-
-} 
+}

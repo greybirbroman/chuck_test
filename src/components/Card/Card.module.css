@@ -1,7 +1,6 @@
 .card {
   font-family: 'Fira Sans';
   box-shadow: 0px 7px 25px 0px rgba(100, 100, 111, 0.2);
-  transition: all 0.3s;
   width: 100%;
   height: auto;
   display: flex;
@@ -10,12 +9,7 @@
   justify-content: space-between;
   position: relative;
   overflow: hidden;
-}
-
-.card:hover {
-  background-color: rgba(100, 100, 111, 0.1);
-  /* box-shadow: 0px 7px 25px 0px rgba(101, 110, 194, 0.5); */
-  cursor: pointer;
+  cursor: default;
 }
 
 .card_small {
@@ -38,6 +32,12 @@
   position: absolute;
   top: 0;
   left: 0;
+  transition: all 0.3s;
+}
+
+.cardLink:hover {
+  background-color: rgba(100, 100, 111, 0.1);
+  cursor: pointer;
 }
 
 .cardText {
@@ -71,8 +71,14 @@
 }
 
 @media (max-width: 992px) {
-    .cardText {
-        font-size: 18px;
-        line-height: normal;
-    }
+  .cardText {
+    font-size: 18px;
+    line-height: normal;
+  }
+}
+
+@media (max-width: 767px) {
+  .card_small, .card_regular {
+    padding: 15px 10px;
+  }
 }

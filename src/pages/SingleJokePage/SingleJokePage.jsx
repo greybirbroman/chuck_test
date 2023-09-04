@@ -4,7 +4,9 @@ import { useLoaderData, Await, useAsyncValue } from 'react-router-dom';
 import paddingWrapper from '../HOC/paddingWrapper';
 import { Card, CustomButton, Logo, Loader } from '../../components';
 import { getJokeById } from '../../utils/api';
-import useJokesNav from '../../utils/hooks/useJokesNav';
+import useJokesNav from '../../utils/hooks/useHandlers';
+import { useSelector } from 'react-redux';
+import { getIsRandom } from '../../services/selectors/randomJokeSelectors';
 
 const JokeFromApi = () => {
   const joke = useAsyncValue();
@@ -14,7 +16,10 @@ const JokeFromApi = () => {
 const SingleJokePage = () => {
   const { joke } = useLoaderData();
   const { handleSurprise, handleGoBack } = useJokesNav();
-  const pageTitle = "Hi! It's a page with Single Joke";
+  const isRandom = useSelector(getIsRandom);
+  const pageTitle = isRandom
+    ? "It's a Random Joke from Chuck!"
+    : "Hi! It's a page with Single Joke";
 
   return (
     <div className={styles.page}>
@@ -26,7 +31,11 @@ const SingleJokePage = () => {
         </Await>
         <div className={styles.buttonsContainer}>
           <CustomButton title='Go Back!' onClick={handleGoBack} />
-          <CustomButton title='Random!' onClick={handleSurprise} invert />
+          <CustomButton
+            title={isRandom ? 'One more!' : 'Random!'}
+            onClick={handleSurprise}
+            invert
+          />
         </div>
       </Suspense>
     </div>
